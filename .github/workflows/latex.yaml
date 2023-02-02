@@ -18,7 +18,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: src
-          root_file: index.tex
+          root_file: main.tex
           args: -pdf -bibtex --shell-escape -file-line-error -halt-on-error -interaction=nonstopmode
       - 
         id: gen_filename
@@ -28,7 +28,7 @@ jobs:
           sha=$(printf "%.7s" "${{ github.sha }}" )
           FILENAME="${reponame}_${sha}.pdf"
           echo "filename=${FILENAME}" >> $GITHUB_ENV
-          echo "::set-output name=filename::${FILENAME}"
+          echo "filename=${FILENAME}" >> $GITHUB_OUTPUT
       - 
         name: Rename Output File
         run: mv src/index.pdf "src/${{ env.filename }}"
