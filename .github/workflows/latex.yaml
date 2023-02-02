@@ -30,7 +30,7 @@ jobs:
           echo "filename=${FILENAME}" >> $GITHUB_OUTPUT
       - 
         name: Rename Output File
-        run: mv index.pdf "${{ env.filename }}"
+        run: mv main.pdf "${{ env.filename }}"
       - 
         uses: actions/upload-artifact@v2
         with:
